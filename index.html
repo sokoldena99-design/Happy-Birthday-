@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#1a0b12">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>Для Карины</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Marck+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Екран 1: Пароль -->
+    <div id="screen-password" class="screen active">
+        <h2 class="fade-in-text">Эта эмоция закрыта цифрами</h2>
+        <p class="cursive-text fade-in-text-delayed">твоя дата рождения</p>
+        
+        <div class="input-container fade-in-text-delayed">
+            <input type="text" id="password-input" placeholder="дата рождения" inputmode="numeric" maxlength="10">
+            <button onclick="checkPassword()" class="btn-open">Открыть</button>
+            <p id="error-msg" class="error"></p>
+        </div>
+    </div>
+
+    <!-- Екран 2: Серце (після пароля) -->
+    <div id="screen-heart" class="screen">
+        <div class="heart-container">
+            <svg class="heart-svg" viewBox="0 0 100 100">
+                <path class="heart-path" d="M50,88 C50,88 10,55 10,35 C10,20 25,10 35,10 C42,10 48,15 50,20 C52,15 58,10 65,10 C75,10 90,20 90,35 C90,55 50,88 50,88 Z" />
+            </svg>
+            <div class="heart-text">
+                С днём рождения,<br>солнышко ❤️🥰🫶
+            </div>
+        </div>
+        <button id="btn-next-heart" class="btn-open" onclick="goToEnvelope()" style="display: none; margin-top: 20px;">Дальше</button>
+    </div>
+
+    <!-- Екран 3: Конверт -->
+    <div id="screen-envelope" class="screen">
+        <div class="envelope-wrapper" onclick="openEnvelope()">
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                <div class="letter">
+                    <span>Карина</span>
+                </div>
+                <div class="seal">❤</div>
+            </div>
+        </div>
+        <p class="hint fade-in-text-delayed">нажми на конверт!</p>
+    </div>
+
+    <!-- Екран 4: Лист з текстом -->
+    <div id="screen-letter" class="screen">
+        <div class="paper" id="paper-scroll">
+            <h2 class="cursive-title">с днём рождения, Карина</h2>
+            <div class="letter-text" id="letter-text"></div>
+        </div>
+        <button id="btn-after-text" class="btn-open" style="display: block; opacity: 0; visibility: hidden; margin: 20px auto 0 auto; transition: opacity 1s ease-in-out, visibility 1s;" onclick="showHeartAgain()">Открыть</button>
+    </div>
+
+    <!-- Екран 5: Маленьке серце з написом -->
+    <div id="screen-heart-again" class="screen">
+        <div class="heart-container-small" id="heart-small">
+            <svg class="heart-svg" viewBox="0 0 100 100">
+                <path class="heart-path" d="M50,88 C50,88 10,55 10,35 C10,20 25,10 35,10 C42,10 48,15 50,20 C52,15 58,10 65,10 C75,10 90,20 90,35 C90,55 50,88 50,88 Z" />
+            </svg>
+            <div class="heart-text-small">
+                ще раз с днём рождения 🫶
+            </div>
+        </div>
+    </div>
+
+    <!-- Екран 6: Фото -->
+    <div id="screen-photos" class="screen">
+        <div class="photos-container">
+            <img src="photo1.jpg" class="photo active" alt="Фото 1">
+            <img src="photo2.jpg" class="photo" alt="Фото 2">
+            <img src="photo3.jpg" class="photo" alt="Фото 3">
+            <img src="photo4.jpg" class="photo" alt="Фото 4">
+        </div>
+        <div class="photos-caption">🥰🫶</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
