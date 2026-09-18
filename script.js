@@ -14,6 +14,7 @@ const textToType = `Карина, с днём рождения тебя! ❤️
 
 let typingIndex = 0;
 let fontCheckInterval;
+let envelopeOpened = false; // <--- ЗАХИСТ ВІД ПОДВІЙНОГО КЛІКУ
 
 document.addEventListener('DOMContentLoaded', () => {
     const inputField = document.getElementById('password-input');
@@ -54,6 +55,10 @@ function goToEnvelope() {
 }
 
 function openEnvelope() {
+    // Якщо конверт вже відкривали — нічого не робимо
+    if (envelopeOpened) return;
+    envelopeOpened = true;
+
     const wrapper = document.querySelector('.envelope-wrapper');
     wrapper.classList.add('open');
 
@@ -143,7 +148,6 @@ function startPhotoSlideshow() {
     const photos = document.querySelectorAll('.photo');
     let currentIndex = 0;
     
-    // Кожні 3 секунди змінюємо фото
     setInterval(() => {
         photos[currentIndex].classList.remove('active');
         currentIndex = (currentIndex + 1) % photos.length;
